@@ -1,4 +1,4 @@
-# Simple Pong Game — Beginner Friendly
+# Simple Pong Game 
 
 Welcome! This is a very small Pong-style game you can open in your browser and tinker with — no prior web experience required.
 
