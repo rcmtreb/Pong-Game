@@ -1,15 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Pong Game</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Crazy Pong</title>
+<link rel="icon" type="image/x-icon" href="/images/favicon.ico.png">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <h1>Simple Pong Game</h1>
-    <div class="game-container">
-        <canvas id="pong" width="800" height="500"></canvas>
+  <h1>Pong Game</h1>
+
+  <div class="game-container">
+    <!-- Main Menu -->
+    <div id="menu" class="overlay" role="dialog" aria-modal="true">
+      <h2>Welcome to Pong!</h2>
+      <div class="menu-actions">
+        <button id="startBtn">Start Game</button>
+        <button id="menuQuitBtn" class="quit">Quit</button>
+      </div>
     </div>
-    <script src="game.js"></script>
+
+    <!-- Pause Overlay -->
+    <div id="pauseOverlay" class="overlay pause-centered" style="display:none;" role="dialog" aria-modal="true">
+      <h2>PAUSED</h2>
+      <p class="hint">Press Space or tap Resume to continue</p>
+      <div class="menu-actions">
+        <button id="resumeBtn">Resume</button>
+        <button id="pauseQuitBtn" class="quit">Quit</button>
+      </div>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOver" class="overlay" style="display:none;" role="dialog" aria-modal="true">
+      <h2>GAME OVER!!!</h2>
+      <div class="menu-actions">
+        <button id="retryBtn">Retry</button>
+        <button id="quitBtn" class="quit">Quit</button>
+      </div>
+    </div>
+
+    <!-- Canvas -->
+    <canvas id="pong" width="800" height="500" style="display:none;"></canvas>
+
+    <!-- Floating pause/play button for touch/mobile -->
+    <button id="mobilePauseBtn" class="floating-pause" aria-label="Pause" title="Pause" style="display:none;">
+      <span class="icon icon-pause" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="20" height="20" focusable="false" aria-hidden="true">
+          <rect x="6" y="5" width="4" height="14"></rect>
+          <rect x="14" y="5" width="4" height="14"></rect>
+        </svg>
+      </span>
+      <span class="icon icon-play" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="20" height="20" focusable="false" aria-hidden="true">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </span>
+    </button>
+  </div>
+
+  <script src="game.js"></script>
 </body>
 </html>
